@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 public class Fylozof implements Runnable{
     private Integer poradi;
     private Integer porce = 0;
-    private Integer celkemPorci = 1000;
+    private Integer celkemPorci = 10000;
     private List<Integer> sousedniHulky = new ArrayList<>();
     private Hulka levaHulka;
     private Hulka pravaHulka;
@@ -45,9 +45,10 @@ public class Fylozof implements Runnable{
             Boolean drzimPravou = false;
             if (drzimLevou) {
                 drzimPravou = pravaHulka.nastavFylozofa(this);
-            } else {
+            } else
+            {
                 try {
-                    TimeUnit.SECONDS.sleep(1);
+                    TimeUnit.MILLISECONDS.sleep(20);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
