@@ -13,7 +13,7 @@ public class Hulka {
     public synchronized Boolean nastavFylozofa(Fylozof fylozof) {
         if (this.fylozof == null) {
             this.fylozof = fylozof;
-            System.out.println("Jsem fylozof " + fylozof.getPoradi() +" beru si hulku " + this.poradi);
+            System.out.println("Jsem fylozof " + fylozof.getPoradi() +" a beru si hulku " + this.poradi);
             return Boolean.TRUE;
         } else {
             return Boolean.FALSE;

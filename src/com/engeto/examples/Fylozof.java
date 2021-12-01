@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 public class Fylozof implements Runnable{
     private Integer poradi;
     private Integer porce = 0;
-    private Integer celkemPorci = 10000;
+    private Integer celkemPorci = 1000;
     private List<Integer> sousedniHulky = new ArrayList<>();
     private Hulka levaHulka;
     private Hulka pravaHulka;
@@ -15,31 +15,19 @@ public class Fylozof implements Runnable{
     public Fylozof(Integer poradi, Hulka levaHulka, Hulka pravaHulka)
     {
         this.poradi = poradi;
-        //this.sousedniHulky = sousedniHulky;
         this.levaHulka = levaHulka;
         this.pravaHulka = pravaHulka;
     }
 
-    public Hulka getLevaHulka() {
-        return levaHulka;
-    }
-
-    public Hulka getPravaHulka() {
-        return pravaHulka;
-    }
 
     public Integer getPoradi() {
         return poradi;
     }
 
-    public void vemLevou() {
-        Boolean xxx = levaHulka.nastavFylozofa(this);
-    }
 
     @Override
     public void run() {
         int i = 0;
-        //for (int i = 0; i < celkemPorci; i++) {
         while (porce < celkemPorci) {
             Boolean drzimLevou = levaHulka.nastavFylozofa(this);
             Boolean drzimPravou = false;
@@ -48,7 +36,7 @@ public class Fylozof implements Runnable{
             } else
             {
                 try {
-                    TimeUnit.MILLISECONDS.sleep(20);
+                    TimeUnit.MILLISECONDS.sleep(2);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -76,10 +64,7 @@ public class Fylozof implements Runnable{
 
     }
 
-    public void vemHulku(int i, List seznamHulek) {
-        seznamHulek.get(i);
 
-    }
 
 
 
